@@ -21,7 +21,6 @@ services:
       context: ./phpfpm
     volumes:
       - ./app:/app:cached
-      - ./phpfpm/php.ini:/usr/local/etc/php/php.ini
 
   mysql:
     image: mysql:5.7
