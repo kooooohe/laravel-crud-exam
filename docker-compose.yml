@@ -5,6 +5,7 @@ services:
     volumes: 
       - ./app:/app
     command: [tail, -f, /dev/null]
+    working_dir: /app/exam
   
   nginx:
     build:
@@ -15,12 +16,23 @@ services:
       - 80:80
     volumes:
       - ./app:/app:cached
+    working_dir: /app/exam
+   
+  node:
+    image: node:13
+    volumes:
+      - ./app:/app:cached
+    ports:
+      - 3000:3000
+    tty: true
+    working_dir: /app/exam
  
   php:
     build:
       context: ./phpfpm
     volumes:
       - ./app:/app:cached
+    working_dir: /app/exam
 
   mysql:
     image: mysql:5.7
