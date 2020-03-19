@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Company;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $companies = Company::get()->random(3);
+
+        $array = json_decode(Storage::get('worker.json'), true);
+        $workers = collect($array['workers'])->random(3);
+
+        return view('home', compact('companies', 'workers'));
     }
 }
