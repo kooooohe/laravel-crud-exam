@@ -16,3 +16,16 @@ services:
     volumes:
       - ./app:/app:cached
     working_dir: /app/exam
+    environment:
+      - DB_CONNECTION=mysql
+      - DB_HOST=$DB_HOST
+      - DB_PORT=3306
+      - DB_DATABASE=$DB_DATABASE
+      - DB_USERNAME=$DB_USERNAME
+      - DB_PASSWORD=$DB_PASSWORD
+      - AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION
+      - AWS_BUCKET=$AWS_BUCKET
+      - CACHE_DRIVER=memcached
+      - SESSION_DRIVER=memcached
+      - MEMCACHED_HOST=$MEMCACHED_HOST
+      - MEMCACHED_PORT=11211
