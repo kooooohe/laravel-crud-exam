@@ -4,6 +4,22 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12 mb-4">
+                @if(App::environment('local'))
+                    <img src="{{ asset('/assets/images/workers.jpg') }}"
+                         width="30%"
+                         style="margin: 0 auto; display: block"
+                         class="mb-4"
+                         alt="workers"
+                    >
+                @else
+                    <img src="{{ env('ASSETS_ENDPOINT') }}/assets/images/workers.jpg"
+                         width="30%"
+                         style="margin: 0 auto; display: block"
+                         class="mb-4"
+                         alt="workers"
+                    >
+                @endif
+
                 <div class="card">
                     <div class="card-header">Companies</div>
 
