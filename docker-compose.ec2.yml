@@ -10,7 +10,7 @@ services:
     volumes:
       - ./app:/app:cached
     working_dir: /app/exam
-   php:
+  php:
     build:
       context: ./phpfpm
     volumes:
