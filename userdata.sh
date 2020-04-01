@@ -8,16 +8,21 @@ sleep 5
 
 while true
 do
-  docker exec -it exam_php_1 php artisan
+  docker exec exam_php_1 php artisan
   if [[ $? -eq 0 ]] ; then
+    echo 'Docker Containers are running'
     break
   else
+    echo 'waiting'
     sleep 5
   fi
 done
 
-docker exec -it exam_php_1 php artisan command:write-key-value-to-cache executingHost ${HOSTNAME}
+echo 'writing cache'
+docker exec exam_php_1 php artisan command:write-key-value-to-cache executingHost ${HOSTNAME} >> ./log.txt
 
+echo 'waiting'
 sleep 5
 
-docker exec -it exam_php_1 php artisan command:migrate-without-overlapping ${HOSTNAME}
+echo 'migrate'
+docker exec exam_php_1 php artisan command:migrate-without-overlapping ${HOSTNAME}
