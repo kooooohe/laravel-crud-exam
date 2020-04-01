@@ -19,7 +19,7 @@ do
 done
 
 echo 'writing cache'
-docker exec exam_php_1 php artisan command:write-key-value-to-cache executingHost ${HOSTNAME} >> ./log.txt
+docker exec exam_php_1 php artisan command:write-key-value-to-cache executingHost ${HOSTNAME}
 
 echo 'waiting'
 sleep 5
