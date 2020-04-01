@@ -16,8 +16,8 @@ do
   fi
 done
 
-docker exec -it exam_php_1 php artisan migrate:status | awk -F '|' '{print $4}' | tr -d ' ' | grep 1
+docker exec -it exam_php_1 php artisan command:write-key-value-to-cache executingHost ${HOSTNAME}
 
-if [[ $? -eq 1 ]] ; then
-  docker exec -it exam_php_1 php artisan migrate:fresh --seed
-fi
+sleep 5
+
+docker exec -it exam_php_1 php artisan command:migrate-without-overlapping ${HOSTNAME}
