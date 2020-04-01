@@ -43,6 +43,7 @@ class MigrateWithoutOverlapping extends Command
     public function handle()
     {
         $host = Cache::get('executingHost', null);
+        $this->info("Host: ${host}");
 
         if ($host === null) {
             $this->info('実行するホストが選択されていません');
