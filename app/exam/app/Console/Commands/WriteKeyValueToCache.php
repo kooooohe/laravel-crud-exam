@@ -38,7 +38,7 @@ class WriteKeyValueToCache extends Command
      */
     public function handle()
     {
-        $is_added = Cache::forever($this->argument('key'), $this->argument('value'));
+        $is_added = Cache::add($this->argument('key'), $this->argument('value'), 300);
 
         if ($is_added) {
             $this->info('書き込みが成功しました');
