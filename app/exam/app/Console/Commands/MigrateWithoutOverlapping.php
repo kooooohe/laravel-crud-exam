@@ -59,6 +59,7 @@ class MigrateWithoutOverlapping extends Command
 
         if ($should_execute) {
             Artisan::call('migrate:fresh', ['--seed' => true]);
+            $this->info('マイグレーションが完了しました');
 
             Cache::forget('executingHost');
         } else {
