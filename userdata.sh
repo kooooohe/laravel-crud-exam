@@ -24,5 +24,5 @@ docker exec exam_php_1 php artisan command:write-key-value-to-cache executingHos
 echo 'waiting'
 sleep 5
 
-echo 'migrate'
+echo 'migrating'
 docker exec exam_php_1 php artisan command:migrate-without-overlapping ${HOSTNAME}
