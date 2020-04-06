@@ -12,10 +12,6 @@ go into the php container
 
 `php artizan migrate`
 
-go into the node container
-
-`yarn && yarn dev`
-
 finally, set .env to connect MySQL container
 
 Accsess ur localhost !

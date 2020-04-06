@@ -20,15 +20,6 @@ services:
       - ./src:/app/src:cached
     working_dir: /app/src
 
-  node:
-    image: node:13
-    volumes:
-      - ./src:/app/src:cached
-    ports:
-      - 3000:3000
-    tty: true
-    working_dir: /app/src
-
   php:
     build:
       context: ./phpfpm
