@@ -8,14 +8,14 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./app:/app:cached
-    working_dir: /app/exam
+      - ./src:/app/src:cached
+    working_dir: /app/src
   php:
     build:
       context: ./phpfpm
     volumes:
-      - ./app:/app:cached
-    working_dir: /app/exam
+      - ./app:/src:cached
+    working_dir: /app/src
     environment:
       - DB_CONNECTION=mysql
       - DB_HOST=$DB_HOST

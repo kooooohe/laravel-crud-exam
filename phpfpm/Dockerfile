@@ -4,4 +4,4 @@ RUN apt-get update \
 && docker-php-ext-install pdo_mysql \
 && pecl install memcached-3.1.5 \
 && docker-php-ext-enable memcached
-WORKDIR /app
+WORKDIR /app/src
