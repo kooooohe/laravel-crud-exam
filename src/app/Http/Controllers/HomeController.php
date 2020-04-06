@@ -26,7 +26,7 @@ class HomeController extends Controller
     {
         $companies = Company::get()->random(3);
 
-        $array = json_decode(Storage::get('worker.json'), true);
+        $array = json_decode(Storage::get('workers.json'), true);
         $workers = collect($array['workers'])->random(3);
 
         return view(
