@@ -14,7 +14,7 @@ services:
     build:
       context: ./phpfpm
     volumes:
-      - ./app:/src:cached
+      - ./src:/src:cached
     working_dir: /app/src
     environment:
       - DB_CONNECTION=mysql
